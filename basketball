@@ -1,0 +1,39 @@
+class numberOfPoints {
+var twoPointers:Int
+var threePointers:Int
+
+    init(bucketsMade:Int, threePointer:Int){
+       twoPointers = 2*bucketsMade
+       threePointers = 3*threePointer
+    }
+    
+    func totalPoints()->Int{
+        return twoPointers + threePointers
+    }
+}
+
+class shotPercentage:numberOfPoints {
+    var shotsTaken = 0
+    var threePointersTaken = 0
+    func fgPercent()->String {
+        var potentialPoints = shotsTaken*2
+        if potentialPoints < twoPointers {
+            print("That is not possible. Revise the total attempts bracket.")
+        }
+        var percent = (twoPointers/potentialPoints)*100
+        return "Dame shot \(percent) from the field"
+    }
+    func threePtPercent()->String {
+        var potentialThrees = threePointersTaken*3
+        if potentialThrees < threePointers {
+            print("That is not possible. Revise the total three point attempts bracket.")
+            } 
+            var threesPercent = (threePointers/threePointersTaken)*100
+            return "Dame shot \(threesPercent) from 3"
+        }
+    }
+
+
+let DameLillard = numberOfPoints(bucketsMade:8, threePointer:0)
+shotPercentage.shotsTaken = 12
+shotPercentage.threePointersTaken = 23
